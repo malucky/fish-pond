@@ -2,11 +2,15 @@
 
 var Fish = Backbone.Model.extend({
 
-  defaults: {
+  defaults: {   
     name: 'Larry',
     image: 'http://www.google.com',
     description: 'Regular old fish',
-    displayInfo: false
-  }
+    displayInfo: false,
+  },
+    toggleDescription: function() {
+        this.set({ displayInfo: !this.get('displayInfo') });
+        this.trigger('toggle:description');
+    }
 
 });
